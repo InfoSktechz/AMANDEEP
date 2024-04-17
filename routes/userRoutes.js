@@ -5,7 +5,7 @@
 // MONGOOSE
 const express = require("express");
 const User = require("../models/user");
-const Article = require('../models/Article');
+const Article = require('../models/article');
 const router = express.Router();
 var bcrypt = require('bcryptjs');
 
