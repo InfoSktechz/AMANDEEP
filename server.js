@@ -6,6 +6,7 @@ const session = require('express-session');
 const { MongoClient } = require('mongodb');
 const axios = require('axios');
 var cors = require('cors');
+var http = require('http');
 const bodyParser = require('body-parser');
 
 // WE HAVE USED BOTH MONGOOSE AND MONGODB_CLIENT TO CONNECTING TO MONGO DB
@@ -101,7 +102,9 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 
-
+// http.createServer(function(req,res){
+//     res.redirect('/');
+// }).listen(80);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
