@@ -1,0 +1,89 @@
+<%- include('layout/Header.ejs') %>
+
+    <!-- ======= ADD A ARTICLE ======= -->
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+            
+            <% articles.forEach((Adata, index)=> { %>
+                <% if (Adata._id==id) { %>
+
+            <div class="section-header">
+                <h2>EDIT ARTICLE</h2>
+                <p><span> <%- Adata.title %></span></p>
+            </div>
+
+
+
+
+
+            <div class="col-lg-12 d-flex align-items-center reservation-form-bg">
+                <form action="/Article/Edit/<%- Adata._id %>/" method="post" role="form"  enctype="multipart/form-data" class="php-email-form" data-aos="fade-up"
+                    data-aos-delay="100"  >
+                    <div class="row gy-4">
+                        <div required class="col-lg-4 col-md-6">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="<%- Adata.name %>">
+                            <div class="validate"></div>
+                        </div>
+                        <div required class="col-lg-4 col-md-6">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                                data-rule="email" data-msg="Please enter a valid email" value="<%- Adata.email %>">
+                            <div class="validate"></div>
+                        </div>
+                        <div required class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="<%- Adata.phone %>">
+                            <div class="validate"></div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <input required type="text" class="form-control" name="title" id="title" placeholder="Title"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="<%- Adata.title %>">
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <input required type="text" class="form-control" name="category" id="category" placeholder="Category"
+                                data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="<%- Adata.category %>">
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <textarea required class="form-control" name="content_title" id="content_title" rows="5"
+                            placeholder="<%- Adata.content_title %>" value="<%- Adata.content_title %>"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea required class="form-control" name="content_details_1" id="content_details_1" rows="5"
+                            placeholder="<%- Adata.content_details_1 %>" value="<%- Adata.content_details_1 %>"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea required class="form-control" name="content_details_2" id="content_details_2" rows="5"
+                            placeholder="<%- Adata.content_details_2 %>" value="<%- Adata.content_details_2 %>"></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <!-- <input hidden type="file" name="old_image" value="<%- Adata.content_image %>"> -->
+                    <div class="form-group mt-3">
+                        <div class="mb-3">
+                            <input required class="form-control" type="file" id="content_image" name="content_image" >
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your Article Is Adding To The Database. Thanks</div>
+                    </div>
+                    <div class="text-center"><button type="submit">ADD</button></div>
+                </form>
+            </div>
+
+
+            <% } %>
+            <% }) %>
+
+        </div>
+    </section>
+
+
+    <%- include('layout/Footer.ejs') %>

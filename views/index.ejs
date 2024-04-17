@@ -1,0 +1,152 @@
+<%- include('layout/Header.ejs') %>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Ignite Your Curiosity, Expand Your Mind</h2>
+                <p>Explore Insightful Articles on Every Topic - Your Source for Knowledge</span></p>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-lg-7 position-relative about-img" style="background-image: url(/IMAGES/Main.jpg) ;"
+                    data-aos="fade-up" data-aos-delay="150">
+                </div>
+                <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                    <div class="content ps-0 ps-lg-5" style="align-self: center;">
+                        <ul>
+                            <li><i class="bi bi-check2-all"></i>Are you passionate about learning, exploring new ideas, and staying informed about the latest trends? Look no further than our website, your ultimate destination for insightful articles on a wide range of topics.</li>
+                            <li><i class="bi bi-check2-all"></i>At our website, we believe in the power of knowledge to transform lives and shape the future. That's why we've curated a diverse collection of articles that are informative, engaging, and thought-provoking.</li>
+                            <li><i class="bi bi-check2-all"></i>With our user-friendly interface and intuitive navigation, exploring our website is easy and enjoyable. Whether you're browsing from your desktop, tablet, or smartphone, you can access our articles anytime, anywhere.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+
+    <% if (message) { %>
+        <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"><span
+                    aria-hidden="true">&times;</span></button>
+            <strong>Success!</strong>
+            <%= message.message %>.
+        </div>
+        <% } %>
+            <!-- ======= ARTICLES Section ======= -->
+            <section  class="events" id="Business">
+
+                <div class="container-fluid" data-aos="fade-up">
+
+                    <div class="section-header">
+                        <h2>BUSINESS</h2>
+                        <p>BUSINESS <span>RELATED</span> ARTICLES</p>
+                    </div>
+                    <% if (articles !='' ) { %>
+
+                        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <% articles.forEach((Adata, index)=> { %>
+                                    <% if (Adata.category =='Business' ) { %>
+                                        <a href="/Article/<%- Adata._id %>" class="swiper-slide">
+                                            <div class=" event-item d-flex flex-column justify-content-center Zoom"
+                                                style="background-image: url('<%- Adata.content_image %>')"
+                                                style="background-color: transparent !important;">
+                                                <h3><%- Adata.title %></h3>
+                                                <p class="description">
+                                                    <%- Adata.content_title %>
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <% } %>
+                                            <% }) %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <% } else { %>
+                            <h1 class="text-center text-secondary mt-5">No Articles</h1>
+                            <% }%>
+                </div>
+
+
+            </section><!-- End ARTICLE Section -->
+
+
+            <!-- ======= ARTICLES Section ======= -->
+            <section  class="events" id="News">
+                <div class="container-fluid" data-aos="fade-up">
+
+                    <div class="section-header">
+                        <h2>NEWS</h2>
+                        <p>NEWS <span>RELATED</span> ARTICLES</p>
+                    </div>
+
+                    <% if (articles !='' ) { %>
+
+                        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <% articles.forEach((Adata, index)=> { %>
+                                    <% if (Adata.category =='News' ) { %>
+                                        <a href="/Article/<%- Adata._id %>" class="swiper-slide">
+                                            <div class=" event-item d-flex flex-column justify-content-center Zoom"
+                                                style="background-image: url('<%- Adata.content_image %>')"
+                                                style="background-color: transparent !important;">
+                                                <h3><%- Adata.title %></h3>
+                                                <p class="description">
+                                                    <%- Adata.content_title %>
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <% } %>
+                                            <% }) %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <% } else { %>
+                            <h1 class="text-center text-secondary mt-5">No Articles</h1>
+                            <% }%>
+
+                </div>
+            </section><!-- End ARTICLE Section -->
+
+
+            <!-- ======= ARTICLES Section ======= -->
+            <section  class="events" id="Sports">
+                <div class="container-fluid" data-aos="fade-up">
+
+                    <div class="section-header">
+                        <h2>SPORTS</h2>
+                        <p>SPORTS <span>RELATED</span> ARTICLES</p>
+                    </div>
+
+                    <% if (articles !='' ) { %>
+
+                        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <% articles.forEach((Adata, index)=> { %>
+                                    <% if (Adata.category =='Sports' ) { %>
+                                        <a href="/Article/<%- Adata._id %>" class="swiper-slide">
+                                            <div class=" event-item d-flex flex-column justify-content-center Zoom"
+                                                style="background-image: url('<%- Adata.content_image %>')"
+                                                style="background-color: transparent !important;">
+                                                <h3><%- Adata.title %></h3>
+                                                <p class="description">
+                                                    <%- Adata.content_title %>
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <% } %>
+                                            <% }) %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <% } else { %>
+                            <h1 class="text-center text-secondary mt-5">No Articles</h1>
+                            <% }%>
+
+                </div>
+            </section><!-- End ARTICLE Section -->
+
+            <%- include('layout/Footer.ejs') %>

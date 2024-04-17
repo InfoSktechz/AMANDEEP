@@ -1,0 +1,85 @@
+<%- include('layout/Header.ejs') %>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <% articles.forEach((Adata, index)=> { %>
+                <% if (Adata._id==id) { %>
+                    <div class="section-header">
+                        <h2><%- Adata.category %> ARTICLE</h2>
+                        <p><span><%- Adata.title %></span></p>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-lg-7 position-relative about-img"
+                            style="background-image: url('<%- Adata.content_image %>') ;" data-aos="fade-up"
+                            data-aos-delay="150">
+                        </div>
+                        <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="content ps-0 ps-lg-5">
+                                <p class="fst-italic">
+                                    <%- Adata.content_title %>
+                                </p>
+                                <p>
+                                    <%- Adata.content_details_1%>
+                                </p>
+                                <p>
+                                    <%- Adata.content_details_2 %>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }) %>
+        </div>
+        <div class="button-div">
+            <button class="button-article"><a href="/Article/Edit_Article/<%- id %>">Edit</a></button>
+            <button type="submit" class="button-article"><a href="/Article/Delete/<%- id %>">Delete</a></button>
+        </div>
+    </section><!-- End About Section -->
+
+
+
+    <!-- ======= ARTICLES Section ======= -->
+    <section id="events" class="events">
+        <% articles.forEach((Bdata, index)=> { %>
+            <% if (Bdata._id==id) { %>
+                <div class="container-fluid" data-aos="fade-up">
+
+                    <div class="section-header">
+                        <h2>BUSINESS</h2>
+                        <p>BUSINESS <span>RELATED</span> ARTICLES</p>
+                    </div>
+
+
+                    <% if (articles !='' ) { %>
+                        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                            <div class="swiper-wrapper">
+                                <% articles.forEach((Adata, index)=> { %>
+                                    <% if (Bdata.category==Adata.category) { %>
+                                        <a href="/Article/<%- Adata._id %>" class="swiper-slide">
+                                            <div class=" event-item d-flex flex-column justify-content-center Zoom"
+                                                style="background-image: url('<%- Adata.content_image %>')"
+                                                style="background-color: transparent !important;">
+                                                <h3><%- Adata.title %></h3>
+                                                <p class="description">
+                                                    <%- Adata.content_title %>
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <% } %>
+                                            <% }) %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <% } else { %>
+                            <h1 class="text-center text-secondary mt-5">No Articles</h1>
+                            <% }%>
+
+                </div>
+                <% } %>
+                    <% }) %>
+    </section><!-- End ARTICLE Section -->
+
+
+    <%- include('layout/Footer.ejs') %>

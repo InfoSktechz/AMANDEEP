@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/CSS/Base.css" />
+
+    <title>Amandeep Singh</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossOrigin="anonymous" />
+    <link rel="icon" href="./IMAGES/SK-logo.png" type="image/icon type">
+
+    <!-- Favicons -->
+    <link href="/IMAGES/avatar.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="search-slider" id="searchslider">
+        <div class="cross-searchbox">
+            <i class="crosssearch fa fa-times" aria-hidden="true" onclick="closesearch()"></i>
+        </div>
+        <div class="search-slider-content">
+            <form action=" " method="post">
+
+
+                <input type="textbox" name="query" id="query" placeholder="Search" class='search-slider-bar' />
+                <div class="search-slider-img">Search</div>
+
+            </form>
+        </div>
+        <div class="searching-content">
+            <div class="recent-search">
+                <div class="recent-heading">
+                    Searches On This Website
+                </div>
+                <div class="recent-content">
+                    <ul>
+                        <li>
+                            Search for News
+                        </li>
+                        <li>
+                            Search for Business Articles
+                        </li>
+                        <li>
+                            Search for Articles
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="icon">
+            <div class="top-icons">
+                <div class="sidebar-button" style="padding-left: 0;">
+                    <button onclick="sidebar()"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+
+            <div class="sidebar-user">Amandeep Singh</div>
+            <div class="sidebar-email">{{ user.email}}</div>
+        </div>
+        <div class="sidebar-content">
+
+            <ul>
+                <a href="/">
+                    <li>
+                        <i class="fas fa-home"></i>
+                        HOME
+                    </li>
+                </a>
+
+                <a href="/All_Articles/">
+                    <li>
+                        <i class="fas fa-sitemap"></i>
+                        ALL ARTICLES
+                    </li>
+                </a>
+
+                <a href="/Business/">
+                    <li>
+                        <i class="fas fa-ad" style="color: #000000;"></i>
+                        BUSINESS
+                    </li>
+                </a>
+
+                <a href="/Sports/">
+                    <li>
+                        <i class="fas fa-address-card"></i>
+                        SPORTS
+                    </li>
+                </a>
+
+                <a href="/News/">
+                    <li>
+                        <i class="fas fa-address-book"></i>
+                        NEWS
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <div class="login-form" id="login-form">
+
+
+
+            <% if (user) { %>
+                <!-- #after_LOgin -->
+                <div>
+                    <a href="/Social/Your_Profile">
+                        <img src="/IMAGES/avatar.png" alt="Avatar" class="avatar" />
+                    </a>
+                    <h1> <%- user.name %></h1>
+                    <p class='titleuser'>Logined</p>
+                </div>
+                <% } else { %>
+                    <!-- #before_LOgin -->
+                    <div class="carduserview">
+                        <img src="/IMAGES/avatar.png" alt="Avatar" class="avatar" />
+                        <h1>HI,USER</h1>
+                        <p class="titleuser"> Login To Our Website</p>
+                        <a href="/Login/"><button class="butt1 button">LOGIN</button></a>
+                    </div>
+                    <% } %>
+        </div>
+        <div class="sidebar-button">
+            <button onclick=sidebar()><i class="fas fa-bars"></i></button>
+        </div>
+
+        <div class="logo">
+            <a href='/' style=" align-self: center; color: #000000; font-weight: 900;">
+                <div>Amandeep Singh</div>
+
+            </a>
+        </div>
+
+        <div class="main-nav" style="align-self: center;">
+            <ul style="margin-bottom: 0; margin-top: 0;">
+                <a href="/">
+                    <li>HOME</li>
+                </a>
+                <a href="/All_Articles/">
+                    <li>ALL ARTICLES</li>
+                </a>
+                <a href="/#Business">
+                    <li>BUSINESS</li>
+                </a>
+                <a href="/#Sports">
+                    <li>SPORTS</li>
+                </a>
+                <a href="/#News">
+                    <li>NEWS</li>
+                </a>
+                <a href="/Article/Add_Article">
+                    <li>ADD ARTICLE</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right-nav">
+            <button class="magnifine" onclick="opensearch()"><img src="/IMAGES/magnifine.png" alt=""
+                    class="magnifine-img"></button>
+            <button class="person" onclick="openlogin()"><img src="/IMAGES/person.png" alt=""
+                    class="person-img"></button>
+        </div>
+    </nav>
+
+
+    <main id="main">
